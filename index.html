@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section class="sidebar">
+        <div class="step">
+          <div class="step-number active">
+            <span>1</span>
+          </div>
+          <div class="step-info">
+            <span>STEP 1</span>
+            <p>YOUR INFO</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            <span>2</span>
+          </div>
+          <div class="step-info">
+            <span>STEP 2</span>
+            <p>SELECT PLAN</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            <span>3</span>
+          </div>
+          <div class="step-info">
+            <span>STEP 3</span>
+            <p>ADD-ONS</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">
+            <span>4</span>
+          </div>
+          <div class="step-info">
+            <span>STEP 4</span>
+            <p>SUMMARY</p>
+          </div>
+        </div>
+      </section>
+      <section class="main-content">
+        <div class="form-content form-1">
+          <div class="title">
+            <span>Personal info</span>
+            <p>Please provide your name, email address, and phone number.</p>
+          </div>
+          <form>
+            <label>
+              <span>Name</span>
+              <input type="text" id="name" placeholder="" required />
+            </label>
+            <label>
+              <span>Email Address</span>
+              <input type="email" id="email" required />
+            </label>
+            <label>
+              <span>Phone Number</span>
+              <input type="text" id="phone" required />
+            </label>
+
+            <div class="pagination">
+              <div class="back">
+                <button>Go Back</button>
+              </div>
+              <button type="submit" class="next">Next Step</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
