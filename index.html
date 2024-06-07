@@ -47,7 +47,7 @@
         </div>
       </section>
       <section class="main-content">
-        <div class="form-content form-1">
+        <div class="form-content form-1 activeform">
           <div class="title">
             <span>Personal info</span>
             <p>Please provide your name, email address, and phone number.</p>
@@ -65,16 +65,55 @@
               <span>Phone Number</span>
               <input type="text" id="phone" required />
             </label>
-
-            <div class="pagination">
-              <div class="back">
-                <button>Go Back</button>
-              </div>
-              <button type="submit" class="next">Next Step</button>
-            </div>
           </form>
+        </div>
+        <div class="form-content form-2">
+          <div class="title">
+            <span>Select your plan</span>
+            <p>You have the option of monthly or yearly billing.</p>
+          </div>
+          <div class="plan-container">
+            <div class="plan activeplan">
+              <img src="assets/images/icon-arcade.svg" alt="arcade" />
+              <div class="price">
+                <h3>Arcade</h3>
+                <span>$9/mo</span>
+                <p>2 months free</p>
+              </div>
+            </div>
+            <div class="plan">
+              <img src="assets/images/icon-advanced.svg" alt="advanced" />
+              <div class="price">
+                <h3>Advanced</h3>
+                <span>$12/mo</span>
+                <p>2 months free</p>
+              </div>
+            </div>
+            <div class="plan">
+              <img src="assets/images/icon-pro.svg" alt="pro" />
+              <div class="price">
+                <h3>Pro</h3>
+                <span>$15/mo</span>
+                <p>2 months free</p>
+              </div>
+            </div>
+          </div>
+          <div class="plan-type">
+            <span>Monthly</span>
+            <div class="toggle-switch">
+              <input class="toggle-input" id="toggle" type="checkbox" />
+              <label class="toggle-label" for="toggle"></label>
+            </div>
+            <span>Yearly</span>
+          </div>
+        </div>
+        <div class="pagination">
+          <button class="back">Go Back</button>
+
+          <button type="submit" class="next">Next Step</button>
         </div>
       </section>
     </main>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
