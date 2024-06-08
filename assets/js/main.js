@@ -4,9 +4,12 @@ const planOptions = document.querySelectorAll(".plan");
 const toggleType = document.getElementById("toggle");
 const adText = document.querySelectorAll(".monthFree");
 const priceText = document.querySelectorAll(".priceText");
+const addOn = document.querySelectorAll(".addon");
 const next1 = document.getElementById("next-1");
 const next2 = document.getElementById("next-2");
 const back2 = document.getElementById("back-2");
+const next3 = document.getElementById("next-3");
+const back3 = document.getElementById("back-3");
 let currentStep = 0;
 let chosenOption = "";
 let paymentType = "month";
@@ -90,8 +93,14 @@ function choosePayment() {
     }
   });
 }
-
-// choose plan
+function chooseAddOn() {
+  addOn.forEach((box) => {
+    box.addEventListener("click", () => {
+      box.classList.toggle("activeAddon");
+    });
+  });
+}
+// choose step
 
 next1.addEventListener("click", () => {
   // if (validateStep(0)) showStep(1);
@@ -102,8 +111,15 @@ next1.addEventListener("click", () => {
 next2.addEventListener("click", () => {
   showStep(2);
 });
+next3.addEventListener("click", () => {
+  showStep(3);
+  chooseAddOn();
+});
 back2.addEventListener("click", () => {
   showStep(0);
+});
+back3.addEventListener("click", () => {
+  showStep(1);
 });
 document.querySelector("#sum").addEventListener("click", () => {
   collectData();
