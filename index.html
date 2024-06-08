@@ -48,7 +48,7 @@
       </section>
       <section class="main-content">
         <!-- form 1 -->
-        <div class="form-content form-1">
+        <div class="form-content activeform">
           <div class="content">
             <div class="title">
               <span>Personal info</span>
@@ -86,7 +86,7 @@
           </div>
         </div>
         <!-- form 2 -->
-        <div class="form-content form-2">
+        <div class="form-content">
           <div class="content">
             <div class="title">
               <span>Select your plan</span>
@@ -129,11 +129,11 @@
           </div>
           <div class="pagination">
             <button class="back" id="back-2">Go Back</button>
-            <button type="submit" class="next" id="next-2">Next Step</button>
+            <button class="next" id="next-2">Next Step</button>
           </div>
         </div>
         <!-- form 3 -->
-        <div class="form-content form-3 activeform">
+        <div class="form-content">
           <div class="content">
             <div class="title">
               <span>Pick add-ons</span>
@@ -141,9 +141,9 @@
             </div>
             <!-- addon 1 -->
             <div class="addons-container">
-              <div class="addon">
+              <div class="addon" id="addOn1">
                 <div class="checkbox">
-                  <input class="addonCheckbox" type="checkbox" />
+                  <input data-addon="1" class="addonCheckbox" type="checkbox" />
                 </div>
                 <div class="addon-title">
                   <h3>Online service</h3>
@@ -156,9 +156,9 @@
             </div>
             <!-- addon 2 -->
             <div class="addons-container">
-              <div class="addon">
+              <div class="addon" id="addOn2">
                 <div class="checkbox">
-                  <input class="addonCheckbox" type="checkbox" />
+                  <input data-addon="2" class="addonCheckbox" type="checkbox" />
                 </div>
                 <div class="addon-title">
                   <h3>Larger storage</h3>
@@ -171,9 +171,9 @@
             </div>
             <!-- addon 2 -->
             <div class="addons-container">
-              <div class="addon">
+              <div class="addon" id="addOn3">
                 <div class="checkbox">
-                  <input class="addonCheckbox" type="checkbox" />
+                  <input data-addon="3" class="addonCheckbox" type="checkbox" />
                 </div>
                 <div class="addon-title">
                   <h3>Customizable profile</h3>
@@ -187,7 +187,42 @@
           </div>
           <div class="pagination">
             <button class="back" id="back-3">Go Back</button>
-            <button type="submit" class="next" id="next-3">Next Step</button>
+            <button class="next" id="next-3">Next Step</button>
+          </div>
+        </div>
+        <!--from 4 summary-->
+        <div class="form-content">
+          <div class="content">
+            <div class="title">
+              <span>Finishing up</span>
+              <p>Double-check everything looks OK before confirming.</p>
+            </div>
+            <div class="summary">
+              <div class="summ1">
+                <div class="sum-left">
+                  <span id="planType">Arcade (monthly)</span>
+                  <button id="change">Change</button>
+                </div>
+                <div class="sum-right">
+                  <span id="planMoney">$9/mo</span>
+                </div>
+              </div>
+              <div class="underline"></div>
+              <div class="summ2">
+                <div class="summ-addon">
+                  <p>Online service</p>
+                  <span>+1/mo</span>
+                </div>
+              </div>
+            </div>
+            <div class="total">
+              <p>Total (per month)</p>
+              <span>$12/mo</span>
+            </div>
+          </div>
+          <div class="pagination">
+            <button class="back" id="back-4">Go Back</button>
+            <button class="next" id="confirm">Confirm</button>
           </div>
         </div>
       </section>

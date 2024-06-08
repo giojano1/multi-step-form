@@ -7,6 +7,10 @@
   font-family: "ubuntu";
   src: url("../fonts/Ubuntu-Regular.ttf");
 }
+@font-face {
+  font-family: "bold";
+  src: url("../fonts/Ubuntu-Bold.ttf");
+}
 body {
   background-color: #eff5ff;
   height: 100vh;
@@ -58,7 +62,8 @@ main {
 }
 .step-number span {
   color: white;
-  font-weight: bold;
+  font-family: "bold";
+
   font-size: 14px;
 }
 .active {
@@ -74,7 +79,7 @@ main {
 .step-info p {
   color: white;
   font-size: 14px;
-  font-weight: bold;
+  font-family: "bold";
 }
 .main-content {
   flex: 0.6;
@@ -86,7 +91,7 @@ main {
 .title span {
   font-size: 32px;
   color: #022959;
-  font-weight: bold;
+  font-family: "bold";
 }
 .title p {
   font-size: 16px;
@@ -126,7 +131,7 @@ main {
 }
 .label-title p {
   font-size: 14px;
-  font-weight: bold;
+  font-family: "bold";
   color: #ee374a;
   display: none;
 }
@@ -310,4 +315,66 @@ main {
 .activeAddon {
   background-color: #f8f9ff;
   border-color: #483eff;
+}
+.summary {
+  background-color: #f8f9ff;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+.summ1,
+.summ-addon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sum-left {
+  display: flex;
+  flex-direction: column;
+}
+#planType {
+  font-size: 16px;
+  color: #022959;
+  font-family: "bold";
+}
+#change {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  color: #9699aa;
+  text-decoration: underline;
+}
+.underline {
+  width: 100%;
+  height: 1px;
+  background-color: #9699aa;
+  margin: 24px 0px;
+}
+#planMoney {
+  font-size: 16px;
+  color: #022959;
+  font-family: "bold";
+}
+.summ-addon p {
+  font-size: 14px;
+  color: #9699aa;
+}
+.summ-addon span {
+  font-size: 14px;
+  color: #022959;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.total p {
+  font-size: 14px;
+  color: #9699aa;
+}
+.total span {
+  color: #483eff;
+  font-size: 20px;
+  font-family: "bold";
 }

@@ -4,16 +4,19 @@ const planOptions = document.querySelectorAll(".plan");
 const toggleType = document.getElementById("toggle");
 const adText = document.querySelectorAll(".monthFree");
 const priceText = document.querySelectorAll(".priceText");
+const planType = document.getElementById("planType");
 const addOn = document.querySelectorAll(".addon");
 const next1 = document.getElementById("next-1");
 const next2 = document.getElementById("next-2");
 const back2 = document.getElementById("back-2");
 const next3 = document.getElementById("next-3");
 const back3 = document.getElementById("back-3");
+const back4 = document.getElementById("back-4");
 let currentStep = 0;
 let chosenOption = "";
-let paymentType = "month";
+let paymentType = "Monthly";
 const formData = {};
+let checkedAddons = {};
 
 function showStep(index) {
   steps.forEach((step, i) => {
@@ -38,13 +41,18 @@ function collectData() {
     formData.plan = "Arcade";
     formData.price = 9;
   }
-  if (paymentType === "year") {
+  if (paymentType === "Yearly") {
     formData.price *= 10;
   }
+  formData.payType = paymentType;
+  formData.addon1 = checkedAddons.addOn1;
+  formData.addon2 = checkedAddons.addOn2;
+  formData.addon3 = checkedAddons.addOn3;
   console.log(formData);
 }
 function showSummary() {
   collectData();
+  planType.textContent = `${formData.plan} (${formData.payType})`;
 }
 function validateStep(step) {
   const inputs = steps[step].querySelectorAll("input");
@@ -75,7 +83,7 @@ function chooseOption() {
 function choosePayment() {
   toggleType.addEventListener("click", () => {
     if (toggleType.checked == true) {
-      paymentType = "year";
+      paymentType = "Yearly";
       adText.forEach((text) => {
         text.classList.add("show");
       });
@@ -83,7 +91,7 @@ function choosePayment() {
       priceText[1].textContent = "$120/yr";
       priceText[2].textContent = "$150/yr";
     } else {
-      paymentType = "month";
+      paymentType = "Monthly";
       adText.forEach((text) => {
         text.classList.remove("show");
       });
@@ -96,30 +104,42 @@ function choosePayment() {
 function chooseAddOn() {
   addOn.forEach((box) => {
     box.addEventListener("click", () => {
-      box.classList.toggle("activeAddon");
+      let addonCheckbox = box.querySelector(".addonCheckbox");
+      checkedAddons[box.id] = addonCheckbox.checked;
+      if (addonCheckbox.checked == true) {
+        box.classList.toggle("activeAddon");
+      } else {
+        box.classList.toggle("activeAddon");
+      }
     });
   });
 }
 // choose step
 
 next1.addEventListener("click", () => {
-  // if (validateStep(0)) showStep(1);
-  showStep(1);
-  chooseOption();
-  choosePayment();
+  if (!validateStep(0)) {
+    showStep(1);
+    chooseOption();
+    choosePayment();
+  }
 });
 next2.addEventListener("click", () => {
   showStep(2);
+  chooseAddOn();
 });
 next3.addEventListener("click", () => {
   showStep(3);
-  chooseAddOn();
+  showSummary();
 });
+
 back2.addEventListener("click", () => {
   showStep(0);
 });
 back3.addEventListener("click", () => {
   showStep(1);
+});
+back4.addEventListener("click", () => {
+  showStep(2);
 });
 document.querySelector("#sum").addEventListener("click", () => {
   collectData();
