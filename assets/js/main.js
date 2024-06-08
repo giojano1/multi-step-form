@@ -2,7 +2,8 @@ const steps = document.querySelectorAll(".form-content");
 const requiredText = document.querySelector(".requiredText");
 const planOptions = document.querySelectorAll(".plan");
 const toggleType = document.getElementById("toggle");
-const adText = document.querySelectorAll(".adText");
+const adText = document.querySelectorAll(".monthFree");
+const priceText = document.querySelectorAll(".priceText");
 const next1 = document.getElementById("next-1");
 const next2 = document.getElementById("next-2");
 const back2 = document.getElementById("back-2");
@@ -33,6 +34,9 @@ function collectData() {
   } else {
     formData.plan = "Arcade";
     formData.price = 9;
+  }
+  if (paymentType === "year") {
+    formData.price *= 10;
   }
   console.log(formData);
 }
@@ -65,18 +69,27 @@ function chooseOption() {
     });
   });
 }
-function choosePayment() {}
-toggleType.addEventListener("click", () => {
-  if (toggleType.checked == true) {
-    paymentType = "year";
-    alert("year");
-    adText.forEach((text) => {
-      text.classList.add("show");
-    });
-  } else {
-    paymentType = "month";
-  }
-});
+function choosePayment() {
+  toggleType.addEventListener("click", () => {
+    if (toggleType.checked == true) {
+      paymentType = "year";
+      adText.forEach((text) => {
+        text.classList.add("show");
+      });
+      priceText[0].textContent = "$90/yr";
+      priceText[1].textContent = "$120/yr";
+      priceText[2].textContent = "$150/yr";
+    } else {
+      paymentType = "month";
+      adText.forEach((text) => {
+        text.classList.remove("show");
+      });
+      priceText[0].textContent = "$9/yr";
+      priceText[1].textContent = "$12/yr";
+      priceText[2].textContent = "$15/yr";
+    }
+  });
+}
 
 // choose plan
 
@@ -84,6 +97,7 @@ next1.addEventListener("click", () => {
   // if (validateStep(0)) showStep(1);
   showStep(1);
   chooseOption();
+  choosePayment();
 });
 next2.addEventListener("click", () => {
   showStep(2);
@@ -94,4 +108,3 @@ back2.addEventListener("click", () => {
 document.querySelector("#sum").addEventListener("click", () => {
   collectData();
 });
-console.log(adText);

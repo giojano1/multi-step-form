@@ -203,13 +203,12 @@ main {
   color: #9699aa;
   font-size: 14px;
 }
-.price p {
-  font-size: 12px;
+
+.monthFree {
   color: #022959;
   padding-top: 10px;
-}
-.adText {
-  font-size: 50px;
+  font-size: 12px;
+  display: none;
 }
 .plan-type {
   display: flex;
