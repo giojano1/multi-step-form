@@ -1,56 +1,97 @@
-const nextBtn = document.querySelector(".next");
-const backBtn = document.querySelector(".back");
 const steps = document.querySelectorAll(".form-content");
-function getActiveForm() {
-  let activeForm = null;
-  steps.forEach((step) => {
-    if (step.classList.contains("activeform")) {
-      activeForm = step;
+const requiredText = document.querySelector(".requiredText");
+const planOptions = document.querySelectorAll(".plan");
+const toggleType = document.getElementById("toggle");
+const adText = document.querySelectorAll(".adText");
+const next1 = document.getElementById("next-1");
+const next2 = document.getElementById("next-2");
+const back2 = document.getElementById("back-2");
+let currentStep = 0;
+let chosenOption = "";
+let paymentType = "month";
+const formData = {};
+
+function showStep(index) {
+  steps.forEach((step, i) => {
+    step.classList.toggle("activeform", i === index);
+  });
+}
+function showStepNumber() {}
+function collectData() {
+  formData.name = document.getElementById("name").value;
+  formData.email = document.getElementById("email").value;
+  formData.phone = document.getElementById("phone").value;
+  if (chosenOption === "arcade") {
+    formData.plan = "Arcade";
+    formData.price = 9;
+  } else if (chosenOption === "advanced") {
+    formData.plan = "Advanced";
+    formData.price = 12;
+  } else if (chosenOption === "pro") {
+    formData.plan = "Pro";
+    formData.price = 15;
+  } else {
+    formData.plan = "Arcade";
+    formData.price = 9;
+  }
+  console.log(formData);
+}
+function showSummary() {
+  collectData();
+}
+function validateStep(step) {
+  const inputs = steps[step].querySelectorAll("input");
+  let allValid = true;
+  inputs.forEach((input) => {
+    let reqText = input.closest("label").querySelector(".requiredText");
+    if (!input.checkValidity()) {
+      input.classList.add("required");
+      reqText.classList.add("show");
+      allValid = false;
+    } else {
+      input.classList.remove("required");
+      reqText.classList.remove("show");
     }
   });
-
-  return activeForm;
+  return allValid;
 }
-function updateButtonStates() {
-  let currentForm = getActiveForm();
-  let nextStep = currentForm.nextElementSibling;
-  let prevStep = currentForm.previousElementSibling;
-
-  nextBtn.disabled = !(nextStep && nextStep.classList.contains("form-content"));
-
-  backBtn.disabled = !(prevStep && prevStep.classList.contains("form-content"));
-  if (prevStep && prevStep.classList.contains("form-content")) {
-    backBtn.style.display = "block";
-  } else if (currentForm.classList.contains("form-1")) {
-    backBtn.disabled = true;
-    backBtn.style.display = "none";
-  }
-  if (currentForm.classList.contains("form-4")) {
-    nextBtn.disabled = true;
-  }
+function chooseOption() {
+  planOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      planOptions.forEach((b) => b.classList.remove("activeplan"));
+      option.classList.add("activeplan");
+      chosenOption = option.dataset.value;
+      console.log(chosenOption);
+    });
+  });
 }
-nextBtn.addEventListener("click", () => {
-  let currentForm = getActiveForm();
-  let nextStep = currentForm.nextElementSibling;
-  let currentInputs = currentForm.querySelectorAll("input");
-
-  if (nextStep && nextStep.classList.contains("form-content")) {
-    currentForm.classList.remove("activeform");
-    nextStep.classList.add("activeform");
+function choosePayment() {}
+toggleType.addEventListener("click", () => {
+  if (toggleType.checked == true) {
+    paymentType = "year";
+    alert("year");
+    adText.forEach((text) => {
+      text.classList.add("show");
+    });
   } else {
-    nextBtn.disabled = true;
+    paymentType = "month";
   }
-  updateButtonStates();
 });
-backBtn.addEventListener("click", () => {
-  let currentForm = getActiveForm();
-  let prevStep = currentForm.previousElementSibling;
 
-  currentForm.classList.remove("activeform");
+// choose plan
 
-  if (prevStep && prevStep.classList.contains("form-content")) {
-    prevStep.classList.add("activeform");
-  }
-  updateButtonStates();
+next1.addEventListener("click", () => {
+  // if (validateStep(0)) showStep(1);
+  showStep(1);
+  chooseOption();
 });
-updateButtonStates();
+next2.addEventListener("click", () => {
+  showStep(2);
+});
+back2.addEventListener("click", () => {
+  showStep(0);
+});
+document.querySelector("#sum").addEventListener("click", () => {
+  collectData();
+});
+console.log(adText);

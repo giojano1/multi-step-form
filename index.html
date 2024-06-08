@@ -48,72 +48,137 @@
       </section>
       <section class="main-content">
         <div class="form-content form-1 activeform">
-          <div class="title">
-            <span>Personal info</span>
-            <p>Please provide your name, email address, and phone number.</p>
+          <div class="content">
+            <div class="title">
+              <span>Personal info</span>
+              <p>Please provide your name, email address, and phone number.</p>
+            </div>
+            <form>
+              <label>
+                <div class="label-title">
+                  <span>Name</span>
+                  <p class="requiredText">This field is required</p>
+                </div>
+
+                <input type="text" id="name" placeholder="" required />
+              </label>
+              <label>
+                <div class="label-title">
+                  <span>Email Address</span>
+                  <p class="requiredText">This field is required</p>
+                </div>
+
+                <input type="email" id="email" required />
+              </label>
+              <label>
+                <div class="label-title">
+                  <span>Phone Number</span>
+                  <p class="requiredText">This field is required</p>
+                </div>
+
+                <input type="text" id="phone" required />
+              </label>
+            </form>
           </div>
-          <form>
-            <label>
-              <span>Name</span>
-              <input type="text" id="name" placeholder="" required />
-            </label>
-            <label>
-              <span>Email Address</span>
-              <input type="email" id="email" required />
-            </label>
-            <label>
-              <span>Phone Number</span>
-              <input type="text" id="phone" required />
-            </label>
-          </form>
+          <div class="pagination">
+            <button class="next" id="next-1">Next Step</button>
+          </div>
         </div>
         <div class="form-content form-2">
-          <div class="title">
-            <span>Select your plan</span>
-            <p>You have the option of monthly or yearly billing.</p>
+          <div class="content">
+            <div class="title">
+              <span>Select your plan</span>
+              <p>You have the option of monthly or yearly billing.</p>
+            </div>
+            <div class="plan-container">
+              <div data-value="arcade" class="plan activeplan">
+                <img src="assets/images/icon-arcade.svg" alt="arcade" />
+                <div class="price">
+                  <h3>Arcade</h3>
+                  <span>$9/mo</span>
+                  <p>2 months free</p>
+                </div>
+              </div>
+              <div data-value="advanced" class="plan">
+                <img src="assets/images/icon-advanced.svg" alt="advanced" />
+                <div class="price">
+                  <h3>Advanced</h3>
+                  <span>$12/mo</span>
+                  <p>2 months free</p>
+                </div>
+              </div>
+              <div data-value="pro" class="plan">
+                <img src="assets/images/icon-pro.svg" alt="pro" />
+                <div class="price">
+                  <h3>Pro</h3>
+                  <span>$15/mo</span>
+                  <p>2 months free</p>
+                </div>
+              </div>
+            </div>
+            <div class="plan-type">
+              <span>Monthly</span>
+              <div class="toggle-switch">
+                <input class="toggle-input" id="toggle" type="checkbox" />
+                <label class="toggle-label" for="toggle"></label>
+              </div>
+              <span>Yearly</span>
+            </div>
           </div>
-          <div class="plan-container">
-            <div class="plan activeplan">
-              <img src="assets/images/icon-arcade.svg" alt="arcade" />
-              <div class="price">
-                <h3>Arcade</h3>
-                <span>$9/mo</span>
-                <p>2 months free</p>
-              </div>
-            </div>
-            <div class="plan">
-              <img src="assets/images/icon-advanced.svg" alt="advanced" />
-              <div class="price">
-                <h3>Advanced</h3>
-                <span>$12/mo</span>
-                <p>2 months free</p>
-              </div>
-            </div>
-            <div class="plan">
-              <img src="assets/images/icon-pro.svg" alt="pro" />
-              <div class="price">
-                <h3>Pro</h3>
-                <span>$15/mo</span>
-                <p>2 months free</p>
-              </div>
-            </div>
-          </div>
-          <div class="plan-type">
-            <span>Monthly</span>
-            <div class="toggle-switch">
-              <input class="toggle-input" id="toggle" type="checkbox" />
-              <label class="toggle-label" for="toggle"></label>
-            </div>
-            <span>Yearly</span>
+          <div class="pagination">
+            <button class="back" id="back-2">Go Back</button>
+            <button type="submit" class="next" id="next-2">Next Step</button>
           </div>
         </div>
-        <div class="pagination">
-          <button class="back">Go Back</button>
-
-          <button type="submit" class="next">Next Step</button>
+        <div class="form-content form-3">
+          <div class="content">
+            <div class="title">
+              <span>Select your planaaaa</span>
+              <p>You have the option of monthly or yearly billing.</p>
+            </div>
+            <div class="plan-container">
+              <div class="plan activeplan">
+                <img src="assets/images/icon-arcade.svg" alt="arcade" />
+                <div class="price">
+                  <h3>Arcade</h3>
+                  <span>$9/mo</span>
+                  <p class="adText">2 months free</p>
+                </div>
+              </div>
+              <div class="plan">
+                <img src="assets/images/icon-advanced.svg" alt="advanced" />
+                <div class="price">
+                  <h3>Advanced</h3>
+                  <span>$12/mo</span>
+                  <p class="adText">2 months free</p>
+                </div>
+              </div>
+              <div class="plan">
+                <img src="assets/images/icon-pro.svg" alt="pro" />
+                <div class="price">
+                  <h3>Pro</h3>
+                  <span>$15/mo</span>
+                  <p class="adText">2 months free</p>
+                </div>
+              </div>
+            </div>
+            <div class="plan-type">
+              <span>Monthly</span>
+              <div class="toggle-switch">
+                <input class="toggle-input" id="toggle" type="checkbox" />
+                <label class="toggle-label" for="toggle"></label>
+              </div>
+              <span>Yearly</span>
+            </div>
+          </div>
+          <div class="pagination">
+            <button class="back" id="back-2">Go Back</button>
+            <button type="submit" class="next" id="next-2">Next Step</button>
+          </div>
         </div>
       </section>
     </main>
+    <button id="sum">sum</button>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

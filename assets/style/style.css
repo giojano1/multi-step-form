@@ -95,6 +95,13 @@ main {
 }
 .form-content {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.activeform {
+  display: flex;
 }
 .form-content form {
   display: flex;
@@ -106,15 +113,33 @@ main {
   flex-direction: column;
   margin-top: 25px;
 }
-.form-content form label span {
+.form-content form label .label-title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.label-title span {
   color: #022959;
   font-size: 14px;
-  margin-bottom: 8px;
+}
+.label-title p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ee374a;
+  display: none;
 }
 .form-content form label input {
   padding: 16px 12px;
   border-radius: 8px;
   border: 1px solid #d6d9e6;
+}
+.required {
+  border-color: #ee374a !important;
+}
+.show {
+  display: block !important;
 }
 .pagination {
   display: flex;
@@ -127,7 +152,6 @@ main {
   background-color: transparent;
   border: none;
   font-size: 16px;
-  display: none;
 }
 .next {
   font-size: 16px;
@@ -140,9 +164,7 @@ main {
 .next:disabled {
   opacity: 0.5;
 }
-.activeform {
-  display: block;
-}
+
 .plan-container {
   display: flex;
   justify-content: space-between;
@@ -186,7 +208,9 @@ main {
   color: #022959;
   padding-top: 10px;
 }
-
+.adText {
+  font-size: 50px;
+}
 .plan-type {
   display: flex;
   align-items: center;
