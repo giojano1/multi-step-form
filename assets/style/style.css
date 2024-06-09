@@ -157,6 +157,11 @@ main {
   background-color: transparent;
   border: none;
   font-size: 16px;
+  transition: 250ms;
+}
+.back:hover {
+  color: #022959;
+  transition: 250ms;
 }
 .next {
   font-size: 16px;
@@ -165,11 +170,13 @@ main {
   padding: 14px 24px;
   border-radius: 8px;
   margin-left: auto;
+  transition: 250ms;
+  border: none;
 }
-.next:disabled {
-  opacity: 0.5;
+.next:hover {
+  background-color: #164a8a;
+  transition: 250ms;
 }
-
 .plan-container {
   display: flex;
   justify-content: space-between;
@@ -344,6 +351,11 @@ main {
   text-align: left;
   color: #9699aa;
   text-decoration: underline;
+  transition: 250ms;
+}
+#change:hover {
+  color: #483eff;
+  transition: 250ms;
 }
 .underline {
   width: 100%;

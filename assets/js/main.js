@@ -1,4 +1,5 @@
 const steps = document.querySelectorAll(".form-content");
+const stepsNav = document.querySelectorAll(".step-number");
 const requiredText = document.querySelector(".requiredText");
 const planOptions = document.querySelectorAll(".plan");
 const toggleType = document.getElementById("toggle");
@@ -33,7 +34,11 @@ function showStep(index) {
     step.classList.toggle("activeform", i === index);
   });
 }
-function showStepNumber() {}
+function activeStep(index) {
+  stepsNav.forEach((step, i) => {
+    step.classList.toggle("active", i === index);
+  });
+}
 function collectData() {
   formData.name = document.getElementById("name").value;
   formData.email = document.getElementById("email").value;
@@ -161,39 +166,42 @@ function chooseAddOn() {
       let addonCheckbox = box.querySelector(".addonCheckbox");
       checkedAddons[box.id] = addonCheckbox.checked;
       if (addonCheckbox.checked == true) {
-        box.classList.toggle("activeAddon");
+        box.classList.add("activeAddon");
       } else {
-        box.classList.toggle("activeAddon");
+        box.classList.remove("activeAddon");
       }
     });
   });
 }
-// choose step
-
 next1.addEventListener("click", () => {
   if (!validateStep(0)) {
     showStep(1);
+    activeStep(1);
     chooseOption();
     choosePayment();
   }
 });
 next2.addEventListener("click", () => {
   showStep(2);
+  activeStep(2);
   chooseAddOn();
 });
 next3.addEventListener("click", () => {
   showStep(3);
+  activeStep(3);
   showSummary();
 });
-
 back2.addEventListener("click", () => {
   showStep(0);
+  activeStep(0);
 });
 back3.addEventListener("click", () => {
   showStep(1);
+  activeStep(1);
 });
 back4.addEventListener("click", () => {
   showStep(2);
+  activeStep(2);
 });
 changeBtn.addEventListener("click", () => {
   showStep(1);
