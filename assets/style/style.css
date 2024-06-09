@@ -356,6 +356,9 @@ main {
   color: #022959;
   font-family: "bold";
 }
+.summ-addon:not(:last-child) {
+  margin-bottom: 16px;
+}
 .summ-addon p {
   font-size: 14px;
   color: #9699aa;
@@ -377,4 +380,34 @@ main {
   color: #483eff;
   font-size: 20px;
   font-family: "bold";
+}
+.sumadd1,
+.sumadd2,
+.sumadd3 {
+  display: none;
+}
+.confirmed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.confirmed img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 30px;
+}
+.confirmed span {
+  font-size: 32px;
+  font-family: "bold";
+  color: #022959;
+}
+.confirmed p {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 25px;
+  color: #9699aa;
 }

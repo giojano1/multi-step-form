@@ -5,7 +5,17 @@ const toggleType = document.getElementById("toggle");
 const adText = document.querySelectorAll(".monthFree");
 const priceText = document.querySelectorAll(".priceText");
 const planType = document.getElementById("planType");
+const planMoney = document.getElementById("planMoney");
 const addOn = document.querySelectorAll(".addon");
+const sumadd1 = document.querySelector(".sumadd1");
+const sumadd2 = document.querySelector(".sumadd2");
+const sumadd3 = document.querySelector(".sumadd3");
+const sumaddprice1 = document.querySelector(".sumaddprice1");
+const sumaddprice2 = document.querySelector(".sumaddprice2");
+const sumaddprice3 = document.querySelector(".sumaddprice3");
+const changeBtn = document.getElementById("change");
+const confirmBtn = document.getElementById("confirm");
+const total = document.getElementById("total");
 const next1 = document.getElementById("next-1");
 const next2 = document.getElementById("next-2");
 const back2 = document.getElementById("back-2");
@@ -17,7 +27,7 @@ let chosenOption = "";
 let paymentType = "Monthly";
 const formData = {};
 let checkedAddons = {};
-
+let totalPrice = 0;
 function showStep(index) {
   steps.forEach((step, i) => {
     step.classList.toggle("activeform", i === index);
@@ -52,7 +62,51 @@ function collectData() {
 }
 function showSummary() {
   collectData();
+
+  let subPrice = formData.price;
+  let addon1Price = 0;
+  let addon2Price = 0;
+  let addon3Price = 0;
+
   planType.textContent = `${formData.plan} (${formData.payType})`;
+
+  if (formData.addon1 == true) {
+    sumadd1.style.display = "flex";
+    addon1Price = 1;
+  } else {
+    sumadd1.style.display = "none";
+  }
+  if (formData.addon2 == true) {
+    sumadd2.style.display = "flex";
+    addon2Price = 1;
+  } else {
+    sumadd2.style.display = "none";
+  }
+  if (formData.addon3 == true) {
+    sumadd3.style.display = "flex";
+    addon3Price = 2;
+  } else {
+    sumadd3.style.display = "none";
+  }
+
+  if (paymentType === "Yearly") {
+    addon1Price *= 10; // tu wliuria update price
+    addon2Price *= 10;
+    addon3Price *= 10;
+    planMoney.textContent = `$${formData.price}/yr`;
+    sumaddprice1.textContent = `+$${addon1Price}/yr`;
+    sumaddprice2.textContent = `+$${addon2Price}/yr`;
+    sumaddprice3.textContent = `+$${addon3Price}/yr`;
+    totalPrice = subPrice + addon1Price + addon2Price + addon3Price;
+    total.textContent = `$${totalPrice}/yr`;
+  } else {
+    planMoney.textContent = `$${formData.price}/mo`;
+    sumaddprice1.textContent = `+$${addon1Price}/mo`;
+    sumaddprice2.textContent = `+$${addon2Price}/mo`;
+    sumaddprice3.textContent = `+$${addon3Price}/mo`;
+    totalPrice = subPrice + addon1Price + addon2Price + addon3Price;
+    total.textContent = `$${totalPrice}/mo`;
+  }
 }
 function validateStep(step) {
   const inputs = steps[step].querySelectorAll("input");
@@ -141,6 +195,9 @@ back3.addEventListener("click", () => {
 back4.addEventListener("click", () => {
   showStep(2);
 });
-document.querySelector("#sum").addEventListener("click", () => {
-  collectData();
+changeBtn.addEventListener("click", () => {
+  showStep(1);
+});
+confirmBtn.addEventListener("click", () => {
+  showStep(4);
 });

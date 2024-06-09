@@ -190,7 +190,7 @@
             <button class="next" id="next-3">Next Step</button>
           </div>
         </div>
-        <!--from 4 summary-->
+        <!--form 4 summary-->
         <div class="form-content">
           <div class="content">
             <div class="title">
@@ -209,15 +209,23 @@
               </div>
               <div class="underline"></div>
               <div class="summ2">
-                <div class="summ-addon">
+                <div class="summ-addon sumadd1">
                   <p>Online service</p>
-                  <span>+1/mo</span>
+                  <span class="sumaddprice1">+1/mo</span>
+                </div>
+                <div class="summ-addon sumadd2">
+                  <p>Larger storage</p>
+                  <span class="sumaddprice2">+1/mo</span>
+                </div>
+                <div class="summ-addon sumadd3">
+                  <p>Customizable profile</p>
+                  <span class="sumaddprice3">+2/mo</span>
                 </div>
               </div>
             </div>
             <div class="total">
               <p>Total (per month)</p>
-              <span>$12/mo</span>
+              <span id="total">$12/mo</span>
             </div>
           </div>
           <div class="pagination">
@@ -225,9 +233,21 @@
             <button class="next" id="confirm">Confirm</button>
           </div>
         </div>
+        <!-- form 5 confirmed -->
+        <div class="form-content">
+          <div class="confirmed">
+            <img src="assets/images/icon-thank-you.svg" alt="checkmark" />
+            <span>Thank you!</span>
+            <p>
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support, please feel free to
+              email us at support@loremgaming.com.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
-    <button id="sum">sum</button>
+
     <script src="assets/js/main.js"></script>
   </body>
 </html>
