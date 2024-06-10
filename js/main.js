@@ -16,6 +16,8 @@ const sumaddprice2 = document.querySelector(".sumaddprice2");
 const sumaddprice3 = document.querySelector(".sumaddprice3");
 const changeBtn = document.getElementById("change");
 const confirmBtn = document.getElementById("confirm");
+const monthSpan = document.querySelector(".moSpan");
+const yearSpan = document.querySelector(".yrSpan");
 const total = document.getElementById("total");
 const next1 = document.getElementById("next-1");
 const next2 = document.getElementById("next-2");
@@ -143,6 +145,8 @@ function choosePayment() {
   toggleType.addEventListener("click", () => {
     if (toggleType.checked == true) {
       paymentType = "Yearly";
+      monthSpan.classList.toggle("togSpan");
+      yearSpan.classList.toggle("togSpan");
       adText.forEach((text) => {
         text.classList.add("show");
       });
@@ -151,6 +155,9 @@ function choosePayment() {
       priceText[2].textContent = "$150/yr";
     } else {
       paymentType = "Monthly";
+      yearSpan.classList.toggle("togSpan");
+      monthSpan.classList.toggle("togSpan");
+
       adText.forEach((text) => {
         text.classList.remove("show");
       });

@@ -736,6 +736,12 @@ body main .main-content .step-content .pagination .next:hover {
     padding: 12px 18px;
   }
 }
+body main .main-content .step-content .pagination #confirm {
+  background-color: #483eff !important;
+}
+body main .main-content .step-content .pagination #confirm:hover {
+  opacity: 0.7;
+}
 @media only screen and (max-width: 650px) {
   body main .main-content .step-content .pagination {
     position: absolute;

@@ -490,6 +490,12 @@ body {
               padding: 12px 18px;
             }
           }
+          #confirm {
+            background-color: $main-purple !important;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
           @include responsive(s-tablet) {
             position: absolute;
             background-color: $white;
