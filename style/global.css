@@ -1,14 +1,14 @@
 @font-face {
   font-family: "regular";
-  src: url("assets/fonts/Ubuntu-Regular.ttf");
+  src: url("../assets/fonts/Ubuntu-Regular.ttf");
 }
 @font-face {
   font-family: "medium";
-  src: url("assets/fonts/Ubuntu-Medium.ttf");
+  src: url("../assets/fonts/Ubuntu-Medium.ttf");
 }
 @font-face {
   font-family: "bold";
-  src: url("assets/fonts/Ubuntu-Bold.ttf");
+  src: url("../assets/fonts/Ubuntu-Bold.ttf");
 }
 /* Global reset */
 *,
@@ -191,7 +191,7 @@ body main {
   }
 }
 body main .sidebar {
-  background-image: url("assets/images/bg-sidebar-desktop.svg");
+  background-image: url("../assets/images/bg-sidebar-desktop.svg");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;
@@ -209,7 +209,7 @@ body main .sidebar {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("assets/images/bg-sidebar-mobile.svg");
+    background-image: url("../assets/images/bg-sidebar-mobile.svg");
     border-radius: 0px;
     padding: 40px 0px 100px 0px;
     position: absolute;
