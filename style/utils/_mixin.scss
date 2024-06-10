@@ -3,3 +3,34 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+$tablet: 850px; // Tablet screen size.
+$m-tablet: 750px; // Tablet screen size.
+$s-tablet: 650px;
+$phone: 450px; // Phone screen size.
+$s-phone: 370px; // Small Screen size.
+$tablet-max: $tablet - 1;
+
+@mixin responsive($media) {
+  @if $media == tablet {
+    @media only screen and (max-width: $tablet) {
+      @content;
+    }
+  } @else if $media == m-tablet {
+    @media only screen and (max-width: $m-tablet) {
+      @content;
+    }
+  } @else if $media == s-tablet {
+    @media only screen and (max-width: $s-tablet) {
+      @content;
+    }
+  } @else if $media == phone {
+    @media only screen and (max-width: $phone) {
+      @content;
+    }
+  } @else if $media == s-phone {
+    @media only screen and (max-width: $s-phone) {
+      @content;
+    }
+  }
+}

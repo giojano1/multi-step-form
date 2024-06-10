@@ -157,7 +157,18 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 0px;
+  padding: 100px 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+@media only screen and (max-width: 850px) {
+  body {
+    padding: 80px 20px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  body {
+    padding: 0px;
+  }
 }
 body main {
   display: flex;
@@ -170,6 +181,14 @@ body main {
   padding: 15px;
   background-color: #ffffff;
   border-radius: 15px;
+  position: relative;
+}
+@media only screen and (max-width: 650px) {
+  body main {
+    flex-direction: column;
+    background-color: transparent;
+    padding: 0px;
+  }
 }
 body main .sidebar {
   background-image: url("../../assets/images/bg-sidebar-desktop.svg");
@@ -177,7 +196,32 @@ body main .sidebar {
   background-repeat: no-repeat;
   border-radius: 10px;
   padding: 40px 30px;
-  flex: 0.25;
+  width: 25%;
+}
+@media only screen and (max-width: 850px) {
+  body main .sidebar {
+    width: 30%;
+    padding: 30px 15px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  body main .sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../assets/images/bg-sidebar-mobile.svg");
+    border-radius: 0px;
+    padding: 40px 0px 100px 0px;
+    position: absolute;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+@media only screen and (max-width: 450px) {
+  body main .sidebar {
+    padding: 40px 0px 100px 0px;
+  }
 }
 body main .sidebar .step {
   display: flex;
@@ -212,18 +256,62 @@ body main .sidebar .step .step-info p {
   font-size: 14px;
   font-family: "bold";
 }
+@media only screen and (max-width: 650px) {
+  body main .sidebar .step .step-info {
+    display: none;
+  }
+}
 body main .sidebar .step .active {
   background-color: #bee2fd;
 }
 body main .sidebar .step .active span {
   color: #022959;
 }
+@media only screen and (max-width: 650px) {
+  body main .sidebar .step {
+    margin-bottom: 0px;
+  }
+  body main .sidebar .step:not(:last-child) {
+    margin-bottom: 0px;
+  }
+}
 body main .main-content {
   display: flex;
   justify-content: center;
   align-items: auto;
-  flex: 0.6;
+  width: 60%;
   padding: 50px 80px 0px 0px;
+}
+@media only screen and (max-width: 850px) {
+  body main .main-content {
+    padding: 50px 20px 0px 0px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  body main .main-content {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  body main .main-content {
+    background-color: #ffffff;
+    margin: 20% auto;
+    margin-top: 22%;
+    z-index: 2;
+    padding: 24px;
+    border-radius: 10px;
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content {
+    margin-top: 25%;
+  }
+}
+@media only screen and (max-width: 370px) {
+  body main .main-content {
+    margin-top: 30%;
+  }
 }
 body main .main-content .activestep {
   display: flex !important;
@@ -233,13 +321,17 @@ body main .main-content .step-content {
   justify-content: space-between;
   align-items: auto;
   flex-direction: column;
-  height: 100%;
   width: 100%;
 }
 body main .main-content .step-content .content .title span {
   font-size: 32px;
   color: #022959;
   font-family: "bold";
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .title span {
+    font-size: 24px;
+  }
 }
 body main .main-content .step-content .content .title p {
   font-size: 16px;
@@ -270,11 +362,21 @@ body main .main-content .step-content .content form label .label-title span {
   color: #022959;
   font-size: 14px;
 }
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content form label .label-title span {
+    font-size: 12px;
+  }
+}
 body main .main-content .step-content .content form label .label-title p {
   font-size: 14px;
   color: #ee374a;
   font-family: "bold";
   display: none;
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content form label .label-title p {
+    font-size: 12px;
+  }
 }
 body main .main-content .step-content .content form label input {
   padding: 16px 12px;
@@ -290,6 +392,17 @@ body main .main-content .step-content .content .plan-container {
   align-items: center;
   margin-top: 40px;
 }
+@media only screen and (max-width: 650px) {
+  body main .main-content .step-content .content .plan-container {
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  body main .main-content .step-content .content .plan-container {
+    flex-direction: column;
+    width: 100%;
+  }
+}
 body main .main-content .step-content .content .plan-container .plan {
   flex: 0.3;
   border-radius: 8px;
@@ -297,6 +410,17 @@ body main .main-content .step-content .content .plan-container .plan {
   padding: 20px;
   cursor: pointer;
   transition: 250ms;
+}
+@media only screen and (max-width: 650px) {
+  body main .main-content .step-content .content .plan-container .plan {
+    width: 100%;
+    display: flex;
+    justify-content: auto;
+    align-items: center;
+  }
+  body main .main-content .step-content .content .plan-container .plan:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }
 body main .main-content .step-content .content .plan-container .plan:hover {
   border-color: #483eff;
@@ -308,6 +432,11 @@ body main .main-content .step-content .content .plan-container .plan img {
 }
 body main .main-content .step-content .content .plan-container .plan .price {
   padding-top: 30px;
+}
+@media only screen and (max-width: 650px) {
+  body main .main-content .step-content .content .plan-container .plan .price {
+    padding: 0px 20px;
+  }
 }
 body main .main-content .step-content .content .plan-container .plan .price h3 {
   font-size: 16px;
@@ -388,6 +517,11 @@ body main .main-content .step-content .content .plan-type .toggle-switch .toggle
 body main .main-content .step-content .content .addons-container {
   margin-top: 40px;
 }
+@media only screen and (max-width: 650px) {
+  body main .main-content .step-content .content .addons-container {
+    margin-top: 20px;
+  }
+}
 body main .main-content .step-content .content .addons-container .addon {
   display: flex;
   justify-content: auto;
@@ -395,6 +529,16 @@ body main .main-content .step-content .content .addons-container .addon {
   border: 1px solid #d6d9e6;
   padding: 18px 24px;
   border-radius: 8px;
+}
+@media only screen and (max-width: 750px) {
+  body main .main-content .step-content .content .addons-container .addon {
+    padding: 15px 15px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .addons-container .addon {
+    padding: 12px 10px;
+  }
 }
 body main .main-content .step-content .content .addons-container .addon .checkbox .addonCheckbox {
   width: 20px;
@@ -404,16 +548,36 @@ body main .main-content .step-content .content .addons-container .addon .checkbo
 body main .main-content .step-content .content .addons-container .addon .addon-title {
   margin-left: 24px;
 }
+@media only screen and (max-width: 750px) {
+  body main .main-content .step-content .content .addons-container .addon .addon-title {
+    margin-left: 18px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .addons-container .addon .addon-title {
+    margin-left: 14px;
+  }
+}
 body main .main-content .step-content .content .addons-container .addon .addon-title h3 {
   font-size: 16px;
   color: #022959;
   font-family: "medium";
   padding-bottom: 5px;
 }
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .addons-container .addon .addon-title h3 {
+    font-size: 14px;
+  }
+}
 body main .main-content .step-content .content .addons-container .addon .addon-title p {
   color: #9699aa;
   font-size: 14px;
   padding-top: 5px;
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .addons-container .addon .addon-title p {
+    font-size: 12px;
+  }
 }
 body main .main-content .step-content .content .addons-container .addon .addon-price {
   margin-left: auto;
@@ -421,6 +585,11 @@ body main .main-content .step-content .content .addons-container .addon .addon-p
 body main .main-content .step-content .content .addons-container .addon .addon-price span {
   color: #483eff;
   font-size: 14px;
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .addons-container .addon .addon-price span {
+    font-size: 12px;
+  }
 }
 body main .main-content .step-content .content .addons-container .activeAddon {
   background-color: #f8f9ff;
@@ -448,6 +617,11 @@ body main .main-content .step-content .content .summary .summ1 .sum-left #planTy
   color: #022959;
   font-family: "medium";
 }
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .summary .summ1 .sum-left #planType {
+    font-size: 14px;
+  }
+}
 body main .main-content .step-content .content .summary .summ1 .sum-left #change {
   background-color: transparent;
   border: none;
@@ -466,6 +640,11 @@ body main .main-content .step-content .content .summary .summ1 .sum-right #planM
   font-size: 16px;
   color: #022959;
   font-family: "bold";
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .summary .summ1 .sum-right #planMoney {
+    font-size: 14px;
+  }
 }
 body main .main-content .step-content .content .summary .underline {
   height: 1px;
@@ -509,6 +688,11 @@ body main .main-content .step-content .content .total span {
   font-size: 20px;
   font-family: "bold";
 }
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .content .total span {
+    font-size: 16px;
+  }
+}
 body main .main-content .step-content .pagination {
   display: flex;
   justify-content: space-between;
@@ -527,6 +711,11 @@ body main .main-content .step-content .pagination .back:hover {
   color: #022959;
   transition: 250ms;
 }
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .pagination .back {
+    font-size: 14px;
+  }
+}
 body main .main-content .step-content .pagination .next {
   font-size: 16px;
   color: #ffffff;
@@ -541,6 +730,22 @@ body main .main-content .step-content .pagination .next:hover {
   background-color: #164a8a;
   transition: 250ms;
 }
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .pagination .next {
+    font-size: 14px;
+    padding: 12px 18px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  body main .main-content .step-content .pagination {
+    position: absolute;
+    background-color: #ffffff;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 16px;
+  }
+}
 body main .main-content .step-content .confirmed {
   display: flex;
   justify-content: center;
@@ -549,6 +754,11 @@ body main .main-content .step-content .confirmed {
   height: 100%;
   width: 100%;
   text-align: center;
+}
+@media only screen and (max-width: 650px) {
+  body main .main-content .step-content .confirmed {
+    padding: 70px 0px;
+  }
 }
 body main .main-content .step-content .confirmed img {
   width: 80px;
@@ -559,6 +769,11 @@ body main .main-content .step-content .confirmed span {
   font-size: 32px;
   font-family: "bold";
   color: #022959;
+}
+@media only screen and (max-width: 450px) {
+  body main .main-content .step-content .confirmed span {
+    font-size: 24px;
+  }
 }
 body main .main-content .step-content .confirmed p {
   margin-top: 15px;

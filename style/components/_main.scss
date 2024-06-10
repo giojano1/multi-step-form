@@ -4,7 +4,14 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 0px;
+  padding: 100px 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  @include responsive(tablet) {
+    padding: 80px 20px;
+  }
+  @include responsive(s-tablet) {
+    padding: 0px;
+  }
   main {
     @include container(flex, space-between, auto);
     max-width: 950px;
@@ -14,14 +21,35 @@ body {
     padding: 15px;
     background-color: $white;
     border-radius: 15px;
-
+    position: relative;
+    @include responsive(s-tablet) {
+      flex-direction: column;
+      background-color: transparent;
+      padding: 0px;
+    }
     .sidebar {
       background-image: url("../../assets/images/bg-sidebar-desktop.svg");
       background-size: cover;
       background-repeat: no-repeat;
       border-radius: 10px;
       padding: 40px 30px;
-      flex: 0.25;
+      width: 25%;
+      @include responsive(tablet) {
+        width: 30%;
+        padding: 30px 15px;
+      }
+      @include responsive(s-tablet) {
+        @include container(flex, center, center);
+        background-image: url("../../assets/images/bg-sidebar-mobile.svg");
+        border-radius: 0px;
+        padding: 40px 0px 100px 0px;
+        position: absolute;
+        width: 100%;
+        height: fit-content;
+      }
+      @include responsive(phone) {
+        padding: 40px 0px 100px 0px;
+      }
       .step {
         @include container(flex, flex-start, center);
         &:not(:last-child) {
@@ -53,6 +81,9 @@ body {
             font-size: 14px;
             font-family: "bold";
           }
+          @include responsive(s-tablet) {
+            display: none;
+          }
         }
         .active {
           background-color: $active-num;
@@ -60,27 +91,55 @@ body {
             color: $main-blue;
           }
         }
+        @include responsive(s-tablet) {
+          margin-bottom: 0px;
+          &:not(:last-child) {
+            margin-bottom: 0px;
+          }
+        }
       }
     }
     .main-content {
       @include container(flex, center, auto);
-      flex: 0.6;
+      width: 60%;
       padding: 50px 80px 0px 0px;
+      @include responsive(tablet) {
+        padding: 50px 20px 0px 0px;
+      }
+      @include responsive(tablet) {
+        width: 65%;
+      }
+      @include responsive(s-tablet) {
+        background-color: $white;
+        margin: 20% auto;
+        margin-top: 22%;
+        z-index: 2;
+        padding: 24px;
+        border-radius: 10px;
+        width: 95%;
+      }
+      @include responsive(phone) {
+        margin-top: 25%;
+      }
+      @include responsive(s-phone) {
+        margin-top: 30%;
+      }
       .activestep {
         display: flex !important;
       }
       .step-content {
         @include container(none, space-between, auto);
         flex-direction: column;
-        height: 100%;
         width: 100%;
-
         .content {
           .title {
             span {
               font-size: 32px;
               color: $main-blue;
               font-family: "bold";
+              @include responsive(phone) {
+                font-size: 24px;
+              }
             }
             p {
               font-size: 16px;
@@ -102,12 +161,18 @@ body {
                 span {
                   color: $main-blue;
                   font-size: 14px;
+                  @include responsive(phone) {
+                    font-size: 12px;
+                  }
                 }
                 p {
                   font-size: 14px;
                   color: $warning;
                   font-family: "bold";
                   display: none;
+                  @include responsive(phone) {
+                    font-size: 12px;
+                  }
                 }
               }
               input {
@@ -123,6 +188,13 @@ body {
           .plan-container {
             @include container(flex, space-between, center);
             margin-top: 40px;
+            @include responsive(s-tablet) {
+              margin-top: 20px;
+            }
+            @include responsive(s-tablet) {
+              flex-direction: column;
+              width: 100%;
+            }
             .plan {
               flex: 0.3;
               border-radius: 8px;
@@ -130,6 +202,13 @@ body {
               padding: 20px;
               cursor: pointer;
               transition: 250ms;
+              @include responsive(s-tablet) {
+                width: 100%;
+                @include container(flex, auto, center);
+                &:not(:last-child) {
+                  margin-bottom: 20px;
+                }
+              }
               &:hover {
                 border-color: $main-purple;
                 transition: 250ms;
@@ -140,6 +219,9 @@ body {
               }
               .price {
                 padding-top: 30px;
+                @include responsive(s-tablet) {
+                  padding: 0px 20px;
+                }
                 h3 {
                   font-size: 16px;
                   color: $main-blue;
@@ -219,12 +301,20 @@ body {
           }
           .addons-container {
             margin-top: 40px;
-
+            @include responsive(s-tablet) {
+              margin-top: 20px;
+            }
             .addon {
               @include container(flex, auto, center);
               border: 1px solid $border;
               padding: 18px 24px;
               border-radius: 8px;
+              @include responsive(m-tablet) {
+                padding: 15px 15px;
+              }
+              @include responsive(phone) {
+                padding: 12px 10px;
+              }
               .checkbox {
                 .addonCheckbox {
                   width: 20px;
@@ -234,16 +324,28 @@ body {
               }
               .addon-title {
                 margin-left: 24px;
+                @include responsive(m-tablet) {
+                  margin-left: 18px;
+                }
+                @include responsive(phone) {
+                  margin-left: 14px;
+                }
                 h3 {
                   font-size: 16px;
                   color: $main-blue;
                   font-family: "medium";
                   padding-bottom: 5px;
+                  @include responsive(phone) {
+                    font-size: 14px;
+                  }
                 }
                 p {
                   color: $main-gray;
                   font-size: 14px;
                   padding-top: 5px;
+                  @include responsive(phone) {
+                    font-size: 12px;
+                  }
                 }
               }
               .addon-price {
@@ -251,6 +353,9 @@ body {
                 span {
                   color: $main-purple;
                   font-size: 14px;
+                  @include responsive(phone) {
+                    font-size: 12px;
+                  }
                 }
               }
             }
@@ -273,6 +378,9 @@ body {
                   font-size: 16px;
                   color: $main-blue;
                   font-family: "medium";
+                  @include responsive(phone) {
+                    font-size: 14px;
+                  }
                 }
                 #change {
                   background-color: transparent;
@@ -294,6 +402,9 @@ body {
                   font-size: 16px;
                   color: $main-blue;
                   font-family: "bold";
+                  @include responsive(phone) {
+                    font-size: 14px;
+                  }
                 }
               }
             }
@@ -337,6 +448,9 @@ body {
               color: $main-purple;
               font-size: 20px;
               font-family: "bold";
+              @include responsive(phone) {
+                font-size: 16px;
+              }
             }
           }
         }
@@ -354,6 +468,9 @@ body {
               color: $main-blue;
               transition: 250ms;
             }
+            @include responsive(phone) {
+              font-size: 14px;
+            }
           }
           .next {
             font-size: 16px;
@@ -368,6 +485,18 @@ body {
               background-color: #164a8a;
               transition: 250ms;
             }
+            @include responsive(phone) {
+              font-size: 14px;
+              padding: 12px 18px;
+            }
+          }
+          @include responsive(s-tablet) {
+            position: absolute;
+            background-color: $white;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding: 16px;
           }
         }
         .confirmed {
@@ -376,6 +505,9 @@ body {
           height: 100%;
           width: 100%;
           text-align: center;
+          @include responsive(s-tablet) {
+            padding: 70px 0px;
+          }
           img {
             width: 80px;
             height: 80px;
@@ -385,6 +517,9 @@ body {
             font-size: 32px;
             font-family: "bold";
             color: $main-blue;
+            @include responsive(phone) {
+              font-size: 24px;
+            }
           }
           p {
             margin-top: 15px;
