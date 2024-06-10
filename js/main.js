@@ -161,9 +161,9 @@ function choosePayment() {
       adText.forEach((text) => {
         text.classList.remove("show");
       });
-      priceText[0].textContent = "$9/yr";
-      priceText[1].textContent = "$12/yr";
-      priceText[2].textContent = "$15/yr";
+      priceText[0].textContent = "$9/mo";
+      priceText[1].textContent = "$12/mo";
+      priceText[2].textContent = "$15/mo";
     }
   });
 }
