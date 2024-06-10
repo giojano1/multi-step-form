@@ -1,4 +1,4 @@
-const steps = document.querySelectorAll(".form-content");
+const steps = document.querySelectorAll(".step-content");
 const stepsNav = document.querySelectorAll(".step-number");
 const requiredText = document.querySelector(".requiredText");
 const planOptions = document.querySelectorAll(".plan");
@@ -31,7 +31,7 @@ let checkedAddons = {};
 let totalPrice = 0;
 function showStep(index) {
   steps.forEach((step, i) => {
-    step.classList.toggle("activeform", i === index);
+    step.classList.toggle("activestep", i === index);
   });
 }
 function activeStep(index) {
@@ -83,7 +83,7 @@ function showSummary() {
   }
   if (formData.addon2 == true) {
     sumadd2.style.display = "flex";
-    addon2Price = 1;
+    addon2Price = 2;
   } else {
     sumadd2.style.display = "none";
   }
@@ -174,7 +174,7 @@ function chooseAddOn() {
   });
 }
 next1.addEventListener("click", () => {
-  if (!validateStep(0)) {
+  if (validateStep(0)) {
     showStep(1);
     activeStep(1);
     chooseOption();
